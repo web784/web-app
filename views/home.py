@@ -1,7 +1,7 @@
 # ---------- PAGE RUNNER PACK --------         
 import streamlit as st
 # WEB PAGE SETUP
-st.set_page_config(page_title="Nguvu Kuu Online", layout="wide",)
+st.set_page_config(page_title="Nguvu Kuu Online")
 
 
 # WEB PAGE STARDED
