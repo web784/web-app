@@ -124,7 +124,5 @@ with st.container():
 </html>
     """)
     st.write("---")
-    st.popover("Don,t Wory Your Email/Gmail Is Saife With Us Enjoy Using Our Website Secuerly")
-    st.popover("Usijali Kuhusu Barua Pepe Yako Ikosalama Nasisi Furahia Tovutihii")
-
-
+    st.popover("Enjoy Using Our Website Secuerly")
+    st.popover("Furahia Tovutihii")

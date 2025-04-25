@@ -62,7 +62,6 @@ pg.run()
 st.logo("./assets/logo1.png")
 st.Icon = "name"
 st.sidebar.title("YOUR WELCOME ANY TIME ")
-st.sidebar.text("---------------------------------------------")
 name = st.code("NGUVU KUU ONLINE FOR YOU")
 #(_provided_cursor=LockedCursor(_index=2, _parent_path=(2, 0, 0), _props={'delta_type': 'imgs', 'add_rows_metadata': None}), _parent=DeltaGenerator(_provided_cursor=RunningCursor(_parent_path=(2, 0, 0), _index=4), _parent=DeltaGenerator(_provided_cursor=RunningCursor(_parent_path=(2, 0)))))
 
