@@ -14,7 +14,7 @@ import streamlit as st
 
 
 # ---- page setup ---- 
-about_page = st.Page(
+home_page = st.Page(
     page="views/home.py",
     title="HOME",
     icon=":material/home:",
@@ -28,29 +28,32 @@ chat_page = st.Page(
 videos_page = st.Page(
     page="views/videos.py",
     title="Video Library",
-    icon=":material/camera:",
+    icon=":material/tv:",
 )
 audios_page = st.Page(
     page="views/audio.py",
     title="Audio Library",
     icon=":material/bar_chart:",
 )
-salse_page = st.Page(
+about_page = st.Page(
     page="views/more.py",
     title="About",
     icon=":material/info:",
+)
+faq_page = st.Page(
+    page="views/faq.py",
+    title="FAQ",
+    icon=":material/thumb_up:",
 )
 # --- navigation ---
 
 
 pg = st.navigation(
     {
-        "Home Page": [about_page],
-        "Other": [videos_page, audios_page],
-        "Feedback":[chat_page],
-        "Info":[salse_page],
-    }
-    
+        'home': [home_page],
+        "librarys": [videos_page, audios_page],
+        "more": [faq_page, chat_page, about_page,],
+    }  
 )
 
 
@@ -59,7 +62,14 @@ pg = st.navigation(
 
  
 pg.run()
+
+
+
+
+
+
 st.logo("./assets/logo1.png")
+st.write("##")
 st.Icon = "name"
 st.sidebar.title("YOUR WELCOME ANY TIME ")
 name = st.code("NGUVU KUU ONLINE FOR YOU")

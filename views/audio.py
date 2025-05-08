@@ -1,5 +1,22 @@
 import streamlit as st
 
+# --- PATH SETTING ---
+THIS_DIR = (__file__).parent if "__file__" in locals() else path.cwd()
+STYLES_DIR = THIS_DIR / "styles"
+ASSETS_DIR = THIS_DIR / "assets"
+AUDIOS_DIR = THIS_DIR / "audios"
+VIDEOS_DIR = THIS_DIR / "videos"
+CSS_FILE = STYLES_DIR / "style.css"
+
+
+# --- GENERAL SETTING ---
+STRIPE_CHECKOUT = "link from anothou website"
+
+
+def load_css_file(css_file_path):
+    with open(css_file_path) as f:
+        return st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 
 # DIAOLOG BOX SETUP STARTS
 @ st.dialog("INFO")
@@ -8,6 +25,7 @@ def show_contact_form():
     st.title("WE WILL UPLOAD SOON AS FAST AS WE CAN")
 
 
+load_css_file(CSS_FILE)
 
 # BUTTOM CONFIG FOR DIALOG SETUP
 with st.container():
