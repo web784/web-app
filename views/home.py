@@ -1,5 +1,25 @@
 # --- PAGE RUNNER PACK --- 
+
+import time
+
+import numpy as np
+
 import streamlit as st
+
+
+
+def Home_page():
+    progress_bar = st.sidebar.progress(0)
+    status_text = st.sidebar.empty()
+
+    for i in range(1, 101):
+        status_text.text(f"{i}% complete")
+        progress_bar.progress(i)
+        time.sleep(.30)
+
+    progress_bar.empty()
+
+
 
 def load_css_file(css_file_path):
     with open(css_file_path) as f:
@@ -15,22 +35,18 @@ AUDIOS_DIR = THIS_DIR / "audios"
 VIDEOS_DIR = THIS_DIR / "videos"
 CSS_FILE = STYLES_DIR / "style.css"
 
-
-# --- GENERAL SETTING ---
-STRIPE_CHECKOUT = "link from anothou website"
-
-
-
-
 # --- WEB PAGE SETUP ---
-st.set_page_config(
-    page_title="Nguvu Kuu Online",
-    page_icon=":telephone_receiver:",
-    layout="wide",
-    initial_sidebar_state="collapsed"
-)
+st.set_page_config(page_title="Nguvu Kuu Online", page_icon=":material/home:", layout="wide")
+
+
+
+# --- LOADING CSS ---
 load_css_file(CSS_FILE)
 
+
+
+
+# --- IMAGE CONTAINER --- 
 @ st.dialog("IMAGE")
 def show_contact_form():
     st.image("./assets/logo2.png", use_container_width=True)
@@ -38,32 +54,43 @@ def show_contact_form():
 
 
 
+
 # --- WEB PAGE STARDED ---
+
+progress_text = "Operation in progress. Please wait."
+my_bar = st.progress(0, text=progress_text)
+
+for percent_complete in range(100):
+    time.sleep(0.02)
+    my_bar.progress(percent_complete + 1, text=progress_text)
+time.sleep(0)
+my_bar.empty()
+
 with st.container():
     st.image("./assets/logo.png", use_container_width=True)
     left_column,rigth_column = st.columns(2, gap="large", vertical_alignment="center")
     with left_column:
-        st.subheader("WELCOME TO NGUVU KUU ONLINE",anchor=False )
+        st.subheader("WELCOME TO NGUVU KUU :blue[ONLINE]",anchor=False )
         st.write("---")
         st.write("WE HAVE GIVEN A CUP OF MERCY")
         st.write("For There Is One God And One Mediator Between God And Men, The Man Christ Jesus 1TIM 2:5")
-        if st.button("DISPLAY IMAGE"):
+        if st.button(":blue[DISPLAY IMAGE]"):
             show_contact_form()
     with rigth_column:
         st.subheader("")
         st.write("---")
         st.write("TUMEPEWA KIKOMBE CHA REHEMA")
         st.write("Kwa Sababu Mungu Ni Mmoja, Na Mpatanishi Kati Ya Mungu Na Mwanadamu Ni Mmoja, Mwanadamu Kristo Yesu")
-        if st.button("ONYESHA PICHA"):
+        if st.button(":blue[ONYESHA PICHA]"):
             show_contact_form()
 with st.container():
     st.write("---")
     st.write("\n")
 
-    # Documantion: https://localhost/ !!! CHANGE THE EMAIL ADRESS !!!
+# Documantion: https://localhost/ !!! CHANGE THE EMAIL ADRESS !!!
 
 
-with st.container():
+with st.container(border=True):
     left_column,rigth_column,center_column = st.columns(3, gap="small")
     with left_column:
             st.write("Tuna Weza Kufanya Lolote Katika Yeye Atutiae Nguvu")
@@ -145,7 +172,7 @@ with st.container():
             )
 
 
-with st.container():
+with st.container(border=True):
     st.write("##")
     center_column,left_column,rigth_column = st.columns(3, gap="small")
     with left_column:
@@ -174,6 +201,7 @@ with st.container():
     center_column,left_column = st.columns(2, gap="small")
     with center_column:
         st.subheader(":telephone_receiver: KWA MAWASILIANO ZAIDI",anchor=False)
+        st.write("---")
         st.write("""
             Kanisa Lina Patikana Arusha Sanawari Ya Juu Kata Ya Oltroto
 
@@ -184,9 +212,10 @@ with st.container():
             0618102908
             """
     )
-        st.write("---")
+
     with left_column:
         st.subheader(":telephone_receiver: FOR MORE INFORMATION",anchor=False)
+        st.write("---")
         st.write("""
             Church Was Located At Sanawari Arusha
 
@@ -197,16 +226,15 @@ with st.container():
             0618102908
             """
     )
-        st.write("---")
 
 
-with st.container():
+with st.container(border=True):
     st.write("##")
     col1_column,col2_column, = st.columns(2, gap="small")
     with col1_column:
         st.subheader(":man_kneeling: Weka Maisha Yako Kwa Mungu",anchor=False)
         st.write("---")
-        st.image("./assets/huf.jpg", width=500)
+        st.image("./assets/huf.jpg", width=450)
         
     with col2_column:
         st.subheader(":woman_kneeling: Bring Your Life To Jesus",anchor=False)
@@ -235,17 +263,11 @@ with st.container():
             """
     )
 
-
-
-
-
-
-
 # --- FAQ ---
 
 st.write("")
 st.write("---")
-st.subheader(":raising_hand: FAQ",anchor=False)
+st.subheader(":raising_hand: :blue[FAQ]",anchor=False,divider=True)
 faq = {
     "SWALI LA 1 : Kanisa Lina Patikana Wapi?": "JIBU : Kanisa Lina Patikana Arusha Tanzania",
     "QUESTION 1 : Were The Church Is Located?": "ANSWER : Church Was Located At Arusha Region In Tanzania",
@@ -256,39 +278,10 @@ for question, answer in faq.items():
     with st.expander(question):
         st.code(answer)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 with st.container():
     st.text("")
     st.write("##")
-    st.status("Videos And Audios Will Be Uploaded Soon Sory ")
-    st.status("video na audio zitarushwa hivi karibuni samahani")
+    st.code("Videos And Audios Will Be Uploaded Soon Sory ")
+    st.code("video na audio zitarushwa hivi karibuni samahani")
+
+Home_page()

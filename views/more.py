@@ -1,3 +1,7 @@
+import time
+
+import numpy as np
+
 import streamlit as st
 
 # --- PATH SETTING ---
@@ -9,6 +13,13 @@ VIDEOS_DIR = THIS_DIR / "videos"
 CSS_FILE = STYLES_DIR / "style.css"
 
 
+
+st.set_page_config(
+    page_title="Nguvu Kuu About",
+    page_icon=":material/info:",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 # --- GENERAL SETTING ---
 STRIPE_CHECKOUT = "link from anothou website"
 
@@ -18,22 +29,26 @@ def load_css_file(css_file_path):
     with open(css_file_path) as f:
         return st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+progress_text = "Operation in progress. Please wait."
+my_bar = st.progress(0, text=progress_text)
 
-st.set_page_config(page_title="Nguvu Kuu Feedback", layout="wide")
-
+for percent_complete in range(100):
+    time.sleep(0.02)
+    my_bar.progress(percent_complete + 1, text=progress_text)
+time.sleep(0)
+my_bar.empty()
 load_css_file(CSS_FILE)
 
-st.title("ABOUT NGUVU KUU ONLINE")
+st.title("ABOUT NGUVU KUU ONLINE",anchor=False)
 
-st.header("KUHUSU")
+
+
 st.write("---")
+st.subheader("KUHUSU",anchor=False)
 
 
 with st.container():
-    col1_column,col3_column, = st.columns(2, gap="small")
-    with col1_column:
-        with st.container():
-                st.write("KUHUSU KANISA LA NGUVU KUU TUNA PATIKANA ARUSHA SANAWARI YA JUU TANZANIA")
+        st.write("KUHUSU KANISA LA NGUVU KUU TUNA PATIKANA ARUSHA SANAWARI YA JUU TANZANIA")
         with st.container():
                 col1_column,col2_column, = st.columns(2, gap="small")
                 with col1_column:
@@ -53,25 +68,21 @@ with st.container():
 
                                 """
                 )
-        with st.container():
-                st.write("TUNA WEZA KUFANYA LOLOTE KATIKA YEYE ATUTIAE NGUVU.")
-                st.write("""
-                        Uponyaji, Kufunguliwa, Kuokoka, Ni Nguvu Kuu Za Mungu Njoo
-                        Na Bwana Awejuu Yako Ukiamini Utapokea Bali Akunamatokeo 
-                        Yoyote Pasipokuamini.
-
-
-
-
-                        """
+with st.container():
+        st.write("TUNA WEZA KUFANYA LOLOTE KATIKA YEYE ATUTIAE NGUVU.")
+        st.write("""
+                Uponyaji, Kufunguliwa, Kuokoka, Ni Nguvu Kuu Za Mungu Njoo
+                Na Bwana Awejuu Yako Ukiamini Utapokea Bali Akunamatokeo 
+                Yoyote Pasipokuamini.
+                """
         )
 
 
 
 
-    st.write("---")
-    st.header("ABOUT")
-    st.write("""
+st.write("---")
+st.subheader("ABOUT",anchor=False)
+st.write("""
         We Are The CHILDRENS Of GOD We Have Create This Web For All People From This World In Order Them To Knwo God And Then To Be The One Who Will Go In Heaven
         If You Have Been Savied By God Through This Web site
 
@@ -85,12 +96,6 @@ with st.container():
         PHILP 4:13 
                 """
         )
-    with col3_column:
-        st.image("./assets/logo2.png", width=200,)
-        st.write("---")
-        st.write("KIKOMBE CHA REHEMA KILICHO ACHILIWA TAREHE 6/4/2025 KWA AJILI YA WATU WOTE")
-
-
 
 st.write("##")
 st.code("[ DEVELOPDE By @Webacco With code better ] Contuct us At Webacco177@gmail.com")
@@ -98,4 +103,6 @@ st.write("""Webacco From Arusha Tanzania
 
  We Are Website Developer, Ai Chatbot, Mobile Applications, Online Marketing, Grafics Desine, Post maker & etc.
  
- For Works Like This Don't Forget To Contuct Us To This Gmail Account Webacco177@gmail.com""")
+ For Works Like This Don't Forget To Contuct Us To This Gmail Account Webacco177@gmail.com"""
+         )
+

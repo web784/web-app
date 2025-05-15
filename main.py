@@ -1,18 +1,6 @@
 import streamlit as st
 
 
-
-
-# use local css
-
-# def local_css(file_name):
-#       with open(file_name) as f:
-#       st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-#local_css("pip/pip.css")
-
-
-
 # ---- page setup ---- 
 home_page = st.Page(
     page="views/home.py",
@@ -45,6 +33,11 @@ faq_page = st.Page(
     title="FAQ",
     icon=":material/thumb_up:",
 )
+test_page = st.Page(
+    page="views/test.py",
+    title="test",
+    icon=":material/add:",
+)
 # --- navigation ---
 
 
@@ -52,7 +45,7 @@ pg = st.navigation(
     {
         'home': [home_page],
         "librarys": [videos_page, audios_page],
-        "more": [faq_page, chat_page, about_page,],
+        "more": [faq_page, chat_page, about_page,test_page],
     }  
 )
 
@@ -65,14 +58,8 @@ pg.run()
 
 
 
-
-
-
 st.logo("./assets/logo1.png")
 st.write("##")
-st.Icon = "name"
-st.sidebar.title("YOUR WELCOME ANY TIME ")
-name = st.code("NGUVU KUU ONLINE FOR YOU")
-#(_provided_cursor=LockedCursor(_index=2, _parent_path=(2, 0, 0), _props={'delta_type': 'imgs', 'add_rows_metadata': None}), _parent=DeltaGenerator(_provided_cursor=RunningCursor(_parent_path=(2, 0, 0), _index=4), _parent=DeltaGenerator(_provided_cursor=RunningCursor(_parent_path=(2, 0)))))
-
-
+st.sidebar.text = "name"
+st.sidebar.subheader("YOUR WELCOME ANY TIME ")
+name = st.status("NGUVU KUU RUNNING ONLINE FOR YOU")
