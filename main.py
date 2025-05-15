@@ -33,11 +33,6 @@ faq_page = st.Page(
     title="FAQ",
     icon=":material/thumb_up:",
 )
-test_page = st.Page(
-    page="views/test.py",
-    title="test",
-    icon=":material/add:",
-)
 # --- navigation ---
 
 
