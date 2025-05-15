@@ -40,7 +40,7 @@ pg = st.navigation(
     {
         'home': [home_page],
         "librarys": [videos_page, audios_page],
-        "more": [faq_page, chat_page, about_page,test_page],
+        "more": [faq_page, chat_page, about_page],
     }  
 )
 
