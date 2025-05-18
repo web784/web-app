@@ -41,7 +41,7 @@ load_css_file(CSS_FILE)
 
 
 with st.spinner("// :blue[5 Sec To Complet...] //"):
-    time.sleep(0.2)
+    time.sleep(0.1)
 
 
 
@@ -72,11 +72,61 @@ with st.status("loading data...", expanded=True) as status:
 
 st.subheader(":raising_hand: :blue[FAQ]",anchor=False, divider="blue")
 faq = {
-    "SWALI LA 1 : Kanisa Lina Patikana Wapi?": "JIBU : Kanisa Lina Patikana Arusha Tanzania",
-    "QUESTION 1 : Were The Church Is Located?": "ANSWER : Church Was Located At Arusha Region In Tanzania",
-    "SWALI LA 2 : Jinsi Ya kutuma Sadaka Yangu?": "JIBU : Tuma Sadaka Yako Kwenda Namba Hizi [M-PESA : 0756302908] & [HALO-PESA : 0618102908] Jina David H. Kalalu",
-    "QUESTION 2 : How Can I Send My Offer?": "ANSWER : To Send Your Offer Send To This Numbers [M-PESA : 0756302908] & [HALO-PESA : 0618102908] Name David H. Kalalu",
+    ":blue[SWALI LA 1 :] Kanisa Lina Patikana Wapi?": ":green[JIBU :] Kanisa Lina Patikana Arusha Tanzania",
+    ":blue[QUESTION 1 :] Were The Church Is Located?": ":green[ANSWER :] Church Was Located At Arusha Region In Tanzania",
+    ":blue[SWALI LA 2 :] Jinsi Ya kutuma Sadaka Yangu?": ":green[JIBU :] Tuma Sadaka Yako Kwenda Namba Hizi [:red[M-PESA] : :green[0756302908]] & [:orange[HALO-PESA] : :green[0618102908]] Jina David H. Kalalu",
+    ":blue[QUESTION 2 :] How Can I Send My Offer?": ":green[ANSWER :] To Send Your Offer Send To This Numbers [:red[M-PESA] : :green[0756302908]] & [:orange[HALO-PESA] : :green[0618102908]] Name David H. Kalalu",
 }
 for question, answer in faq.items():
     with st.expander(question):
-        st.code(answer)
+        st.write(answer)
+
+
+with st.container(border=True):
+    c2, c1 = st.columns(2, gap="large")
+    with c1:
+        st.subheader("🧏🏿‍♀️ :blue[FAQ]",anchor=False, divider="blue")
+        faq = {
+            ":blue[QUESTION 1 :] Why Do I Have To Do This ?": "ANSWER : Because If You Beleave In Something You Will Practice It Inoder To Find More",
+            ":blue[QUESTION 2 :] What About Readings": "ANSWER : Reading Is The Best Way To Make Things Easy Because Many Books Have A Leade For Something Eals",
+        }
+        for question, answer in faq.items():
+            with st.expander(question):
+                st.code(answer)
+
+    with c2:
+        st.subheader("🙇🏿:blue[Make Things Easy]")
+        st.write( """
+                How To Make Things Easy To Use There :orange[Three Main Things] To Practice
+                
+                :blue[**.** 1] Beliving
+                 
+                :blue[**.** 2] Reading
+                 
+                :blue[**.** 3] Practising
+                """ )
+
+st.write("")
+with st.container(border=True):
+    c1, c2 = st.columns(2, gap="large",)
+    with c1:
+        st.subheader("🤷‍♀️ :blue[FAQ]",anchor=False, divider="blue")
+        faq = {
+            ":blue[SWALI LA 1 :] Kwanini Naitajika Kufanya Ivyo ?": ":green[JIBU :] Kwa Sababu Kama Mtu Anaamini Juu Ya Kitu Fulani Anabudi Kufanya Majribio",
+            ":blue[SWALI LA 2 :] Vipi Kuhusu Kusoma ?": ":green[JIBU :] Kusoma Ndio Njia Bora Zaidi Ya Kufanya Vitu Kuwa Rahisi Kwasababu Vitabuu Ni Muongozo Kuhusu Kitu Fulani",
+        }
+        for question, answer in faq.items():
+            with st.expander(question):
+                st.write(answer)
+
+    with c2:
+        st.subheader("🙇🏿‍♂️:blue[Fanya Mambo Kuwa Rahisi]")
+        st.write( """
+                Ni Namna Gani Unaweza Kufanya Mambo Kuwa Rahisi Kuna :orange[Mambo Matatu]
+                
+                :blue[**.** 1] Kuamini
+                 
+                :blue[**.** 2] Kusoma
+                 
+                :blue[**.** 3] Majaribio
+                """ )

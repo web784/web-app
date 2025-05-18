@@ -1,23 +1,23 @@
 # --- PAGE RUNNER PACK --- 
+import streamlit as st
 
 import time
 
 import numpy as np
 
-import streamlit as st
 
 
 
-def Home_page():
-    progress_bar = st.sidebar.progress(0)
-    status_text = st.sidebar.empty()
+# def Home_page():
+#     progress_bar = st.sidebar.progress(0)
+#     status_text = st.sidebar.empty()
 
-    for i in range(1, 101):
-        status_text.text(f"{i}% complete")
-        progress_bar.progress(i)
-        time.sleep(.30)
+#     for i in range(1, 101):
+#         status_text.text(f"{i}% complete")
+#         progress_bar.progress(i)
+#         time.sleep(.30)
 
-    progress_bar.empty()
+#     progress_bar.empty()
 
 
 
@@ -36,35 +36,52 @@ VIDEOS_DIR = THIS_DIR / "videos"
 CSS_FILE = STYLES_DIR / "style.css"
 
 # --- WEB PAGE SETUP ---
-st.set_page_config(page_title="Nguvu Kuu Online", page_icon=":material/home:", layout="wide")
+
+
+st.set_page_config(
+    page_title="Nguvu Kuu Online",
+    page_icon=":material/home:",
+    layout="wide"
+)
 
 
 
 # --- LOADING CSS ---
+
+
 load_css_file(CSS_FILE)
 
 
 
 
 # --- IMAGE CONTAINER --- 
-@ st.dialog("IMAGE")
+
+
+@ st.dialog("KIKOMBE CHA REHEMA")
 def show_contact_form():
     st.image("./assets/logo2.png", use_container_width=True)
+    st.write("")
 
 
 
 
-
-# --- WEB PAGE STARDED ---
+# --- WEB PAGE LOADED ---
 
 progress_text = "Operation in progress. Please wait."
 my_bar = st.progress(0, text=progress_text)
 
 for percent_complete in range(100):
-    time.sleep(0.02)
+    time.sleep(0.001)
     my_bar.progress(percent_complete + 1, text=progress_text)
-time.sleep(0)
+    time.sleep(0)
 my_bar.empty()
+
+
+
+# --- STREAMLIT WEB APP ----
+
+
+# ====== HEADER SECTION =====
 
 with st.container():
     st.image("./assets/logo.png", use_container_width=True)
@@ -87,7 +104,9 @@ with st.container():
     st.write("---")
     st.write("\n")
 
-# Documantion: https://localhost/ !!! CHANGE THE EMAIL ADRESS !!!
+
+
+# ====== BODY SECTION ========
 
 
 with st.container(border=True):
@@ -109,6 +128,9 @@ with st.container(border=True):
             lakini yule mtoza ushuru alisimama mbali,wala hakuthubutu hata kuinua macho yake mbinguni ,bali alijipiga-piga kifua akisema,
             ee mungu uniwie rathi mimi mwenye dhambi"""
             )
+
+
+ # ======= TIME TEABLE SECTION ======
 
 
 with st.container():
@@ -171,6 +193,7 @@ with st.container():
                     """
             )
 
+# ====== MORE SECTION ======== 
 
 with st.container(border=True):
     st.write("##")
@@ -227,61 +250,58 @@ with st.container():
             """
     )
 
-
+st.write("##")
 with st.container(border=True):
     st.write("##")
     col1_column,col2_column, = st.columns(2, gap="small")
     with col1_column:
-        st.subheader(":man_kneeling: Weka Maisha Yako Kwa Mungu",anchor=False)
+        st.subheader(":man_kneeling: Weka Maisha Yako Kwa :blue[Mungu]",anchor=False)
         st.write("---")
-        st.image("./assets/huf.jpg", width=450)
-        
-    with col2_column:
-        st.subheader(":woman_kneeling: Bring Your Life To Jesus",anchor=False)
-        st.write("---")
-        st.write("""
-            **Beneficts Of Bringing Your Life To Jesus**
-
-            .End Of Deases
-
-            .Happyness Life
-
-            .Endless Peace
-
-            """
-    )
         st.text("")
         st.write("""
             **Faida Za Kuweka Maisha Yako Kwa Mungu**
 
-            .Mwisho Wa Magonjwa
+            :blue[. 1] Mwisho Wa Magonjwa
 
-            .Furaha Maishani
+            :blue[. 2] Furaha Maishani
 
-            .Amani Ya Milele
+            :blue[. 3] Amani Ya Milele
+
+            """
+    )
+        
+    with col2_column:
+        st.subheader(":woman_kneeling: Bring Your Life To :blue[Jesus]",anchor=False)
+        st.write("---")
+        st.write("""
+            **Beneficts Of Bringing Your Life To Jesus**
+
+            :blue[. 1] End Of Deases
+
+            :blue[. 2] Happyness Life
+
+            :blue[. 3] Endless Peace
 
             """
     )
 
-# --- FAQ ---
+# ====== FAQ SECTION =========
 
 st.write("")
 st.write("---")
 st.subheader(":raising_hand: :blue[FAQ]",anchor=False,divider=True)
 faq = {
-    "SWALI LA 1 : Kanisa Lina Patikana Wapi?": "JIBU : Kanisa Lina Patikana Arusha Tanzania",
-    "QUESTION 1 : Were The Church Is Located?": "ANSWER : Church Was Located At Arusha Region In Tanzania",
-    "SWALI LA 2 : Jinsi Ya kutuma Sadaka Yangu?": "JIBU : Tuma Sadaka Yako Kwenda Namba Hizi [M-PESA : 0756302908] & [HALO-PESA : 0618102908] Jina David H. Kalalu",
-    "QUESTION 2 : How Can I Send My Offer?": "ANSWER : To Send Your Offer Send To This Numbers [M-PESA : 0756302908] & [HALO-PESA : 0618102908] Name David H. Kalalu",
+    ":blue[SWALI LA 1 :] Kanisa Lina Patikana Wapi?": ":green[JIBU :] Kanisa Lina Patikana Arusha Tanzania",
+    ":blue[QUESTION 1 :] Were The Church Is Located?": ":green[ANSWER :] Church Was Located At Arusha Region In Tanzania",
+    ":blue[SWALI LA 1 :] Jinsi Ya kutuma Sadaka Yangu?": ":green[JIBU :] Tuma Sadaka Yako Kwenda Namba Hizi [:red[M-PESA] : :green[0756302908]] & [:orange[HALO-PESA] : :green[0618102908]] Jina David H. Kalalu",
+    ":blue[QUESTION 1 :] How Can I Send My Offer?": ":green[ANSWER :] To Send Your Offer Send To This Numbers [:red[M-PESA] : :green[0756302908]] & [:orange[HALO-PESA] : :green[0618102908]] Name David H. Kalalu",
 }
 for question, answer in faq.items():
     with st.expander(question):
-        st.code(answer)
+        st.write(answer)
 
 with st.container():
     st.text("")
     st.write("##")
     st.code("Videos And Audios Will Be Uploaded Soon Sory ")
     st.code("video na audio zitarushwa hivi karibuni samahani")
-
-Home_page()
